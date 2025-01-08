@@ -27,6 +27,9 @@ export const getJournalEntryById = memoize(
           id: journalId,
         },
       },
+      include:{
+        Analysis:true
+      }
     });
 
     return journal;

@@ -24,6 +24,7 @@ const schema = z.object({
     .describe(
       "sentiment of the text and rated on a scale from -10 to 10, where -10 is extremely negative, 0 is neutral, and 10 is extremely positive.",
     ),
+  song: z.string().describe("a youtube link to a song that matches the mood."),
 });
 
 // Generate the prompt
@@ -39,6 +40,7 @@ Format:
   "summary": "string (quick summary)",
   "color": "string (hex color code representing mood, e.g., #ff0000)",
   "sentimentScore": "number (-10 to 10 sentiment score)"
+  "song": "string (youtube link to a song that matches the mood)"
 }
 
 Journal Entry:
@@ -73,7 +75,7 @@ export async function analyze(entry: string) {
 
     try {
       const result = schema.parse(JSON.parse(output as string));
-      console.log("Result:", result);
+      return result;
     } catch (error) {
       console.error("Error parsing output:", error);
     }
