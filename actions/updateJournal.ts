@@ -38,4 +38,5 @@ export const updateJournal = async (JournalId: string, content: string) => {
   });
 
   revalidateTag(`journal-${JournalId}`);
+  revalidateTag("journal");
 };

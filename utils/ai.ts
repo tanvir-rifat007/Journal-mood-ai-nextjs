@@ -40,7 +40,7 @@ Format:
   "summary": "string (quick summary)",
   "color": "string (hex color code representing mood, e.g., #ff0000)",
   "sentimentScore": "number (-10 to 10 sentiment score)"
-  "song": "string (youtube link to a song that matches the mood)"
+  "song": ""string (youtube link to a song that matches the mood)"
 }
 
 Journal Entry:

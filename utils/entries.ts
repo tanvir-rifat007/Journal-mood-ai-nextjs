@@ -1,5 +1,6 @@
 import { prisma } from "@/db/db";
 import { memoize } from "nextjs-better-unstable-cache";
+import { indexJournalEntry } from "./ingest";
 
 export const getAllJournalEntries = memoize(
   async (userId: string) => {
@@ -8,6 +9,9 @@ export const getAllJournalEntries = memoize(
         userId,
       },
     });
+
+    // then move this entries to the upstash vector index
+    await indexJournalEntry(journals);
 
     return journals;
   },
@@ -27,9 +31,9 @@ export const getJournalEntryById = memoize(
           id: journalId,
         },
       },
-      include:{
-        Analysis:true
-      }
+      include: {
+        Analysis: true,
+      },
     });
 
     return journal;
