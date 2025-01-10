@@ -38,6 +38,9 @@ const Header = () => {
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal flex items-center gap-4 font-bold">
               <li>
+                <Link href="/journal">Journal</Link>
+              </li>
+              <li>
                 <Link href="/history">history</Link>
               </li>
               <li>
@@ -60,7 +63,10 @@ const Header = () => {
             <Link href="/journal">Journal</Link>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <Link href="/history">History</Link>
+          </li>
+          <li>
+            <UserButton />
           </li>
         </ul>
       </div>
