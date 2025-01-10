@@ -1,6 +1,8 @@
 import Editor from "@/components/Editor";
+import Player from "@/components/Player";
 import { getUserByClerkId } from "@/utils/auth";
 import { getJournalEntryById } from "@/utils/entries";
+import ReactPlayer from "react-player";
 
 type JournalEntryProps = {
   params: Promise<{ id: string }>;
@@ -78,9 +80,7 @@ const page = async ({ params }: JournalEntryProps) => {
                   text-sm"
                 >
                   {data.value.includes("https") ? (
-                    <a href={data.value} target="_blank">
-                      {data.value}
-                    </a>
+                    <Player url={data.value} />
                   ) : (
                     data.value
                   )}

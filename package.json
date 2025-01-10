@@ -24,6 +24,7 @@
     "react": "^19.0.0",
     "react-autosave": "^0.4.4",
     "react-dom": "^19.0.0",
+    "react-player": "^2.16.0",
     "recharts": "^2.15.0"
   },
   "devDependencies": {
