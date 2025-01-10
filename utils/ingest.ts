@@ -6,22 +6,25 @@ const index = new UpstashIndex({
 });
 
 export async function indexJournalEntry(journals) {
-  for (const entry of journals) {
-    const { id, content, createdAt } = entry;
+  if (journals.length > 0) {
+    for (const entry of journals) {
+      const { id, content, createdAt, user } = entry;
 
-    try {
-      await index.upsert({
-        id,
-        data: content,
-        metadata: {
-          createdAt,
+      try {
+        await index.upsert({
           id,
-          content,
-        },
-      });
-      console.log(`Indexed journal entry: ${id}`);
-    } catch (error) {
-      console.error(`Error indexing entry ${id}:`, error);
+          data: content,
+          metadata: {
+            createdAt,
+            id,
+            content,
+            userId: user.clerkId,
+          },
+        });
+        console.log(`Indexed journal entry: ${id}`);
+      } catch (error) {
+        console.error(`Error indexing entry ${id}:`, error);
+      }
     }
   }
 }

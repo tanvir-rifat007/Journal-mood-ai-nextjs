@@ -2,6 +2,7 @@
 import { prisma } from "@/db/db";
 import { analyze } from "@/utils/ai";
 import { getUserByClerkId } from "@/utils/auth";
+import { indexJournalEntry } from "@/utils/ingest";
 import { revalidateTag } from "next/cache";
 
 export const updateJournal = async (JournalId: string, content: string) => {
@@ -31,11 +32,14 @@ export const updateJournal = async (JournalId: string, content: string) => {
       entryId: updatedJournalEntry.id,
     },
     create: {
+      userId: user.id,
       entryId: updatedJournalEntry.id,
       ...analysis,
     },
     update: analysis,
   });
+
+  await indexJournalEntry(updatedJournalEntry);
 
   revalidateTag(`journal-${JournalId}`);
   revalidateTag("journal");

@@ -8,7 +8,12 @@ export const getAllJournalEntries = memoize(
       where: {
         userId,
       },
+      include: {
+        user: true,
+      },
     });
+
+    console.log(journals);
 
     // then move this entries to the upstash vector index
     await indexJournalEntry(journals);

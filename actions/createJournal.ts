@@ -22,6 +22,7 @@ export const createNewEntry = async () => {
   const analysis = await analyze(data.content);
   await prisma.analysis.create({
     data: {
+      userId: user.id,
       entryId: data.id,
       ...analysis,
     },

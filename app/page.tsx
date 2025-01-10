@@ -7,12 +7,19 @@ export default async function Home() {
   const href = userId ? "/journal" : "/new-user";
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center bg-slate-950 ">
+    <div
+      className="w-screen h-screen flex items-center justify-center bg-slate-950
+    mx-auto px-4 sm:px-0 
+
+
+     
+    "
+    >
       <div className="grid gap-6">
-        <h1 className="text-slate-50 text-4xl">
+        <h1 className="text-slate-50 sm:text-4xl text-3xl">
           The best journal app, period.
         </h1>
-        <p className="text-slate-200/90 text-xl">
+        <p className="text-slate-200/90 sm:text-xl">
           This is the best journal app you will ever use. It is simple, easy to
           use and has all the features you need.
         </p>

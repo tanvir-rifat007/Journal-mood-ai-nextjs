@@ -36,8 +36,10 @@ const Header = () => {
             </Link>
           </div>
           <div className="hidden flex-none lg:block">
-            <ul className="menu menu-horizontal">
-              {/* Navbar menu content here */}
+            <ul className="menu menu-horizontal flex items-center gap-4 font-bold">
+              <li>
+                <Link href="/history">history</Link>
+              </li>
               <li>
                 <UserButton />
               </li>

@@ -23,6 +23,7 @@ model User {
   updatedAt DateTime @updatedAt
 
   JournalEntry JournalEntry[]
+  Analysis Analysis[]
 }
 
 model JournalEntry {
@@ -37,6 +38,8 @@ model JournalEntry {
 
   Analysis Analysis?
 
+  
+
   @@unique([userId,id])
 
 }
@@ -48,14 +51,18 @@ model Analysis {
   entryId   String
   entry     JournalEntry @relation(fields: [entryId], references: [id],onDelete: Cascade)
 
+  userId   String
+  user     User   @relation(fields: [userId], references: [id],onDelete: Cascade)
+
   mood     String
   subject  String
   negative Boolean
   summary  String
   color   String
-  sentimentScore Int
+  sentimentScore Float @default(0)
   song     String
 
 
   @@unique([entryId])
+  @@index([userId])
 }

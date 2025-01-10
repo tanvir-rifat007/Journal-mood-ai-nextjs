@@ -6,7 +6,7 @@ import { LogIn } from "lucide-react";
 
 export default function SignInPage() {
   return (
-    <div className="grid w-full flex-grow items-center bg-white px-4 sm:justify-center h-screen">
+    <div className="grid w-full flex-grow items-center bg-slate-950 px-4 sm:justify-center h-screen">
       <SignIn.Root>
         <SignIn.Step
           name="start"
@@ -17,11 +17,11 @@ export default function SignInPage() {
               className="
               mx-auto
               size-10
-              text-neutral-950
+              text-slate-50
             "
             />
 
-            <h1 className="mt-4 text-xl font-medium tracking-tight text-neutral-950">
+            <h1 className="mt-4 text-xl font-medium tracking-tight text-slate-50">
               Sign in to Moody Journal
             </h1>
           </header>
@@ -32,7 +32,7 @@ export default function SignInPage() {
               type="email"
               required
               placeholder="Email"
-              className="w-full border-b border-neutral-200 bg-white pb-2 text-sm/6 text-neutral-950 outline-none placeholder:text-neutral-400 hover:border-neutral-300 focus:border-neutral-600 data-[invalid]:border-red-600 data-[invalid]:text-red-600"
+              className="w-full border-b border-neutral-200 bg-white pb-2 text-sm/6 text-neutral-950 outline-none placeholder:text-neutral-400 hover:border-neutral-300 focus:border-neutral-600 data-[invalid]:border-red-600 data-[invalid]:text-red-600 p-2"
             />
             <Clerk.FieldError className="mt-2 block text-xs text-red-600" />
           </Clerk.Field>
@@ -73,11 +73,11 @@ export default function SignInPage() {
               </Clerk.Connection>
             </div>
           </div>
-          <p className="text-center text-sm text-neutral-500">
+          <p className="text-center text-sm text-slate-400">
             Don&apos;t have an account?{" "}
             <Clerk.Link
               navigate="sign-up"
-              className="rounded px-1 py-0.5 text-neutral-700 outline-none hover:bg-neutral-100 focus-visible:bg-neutral-100"
+              className="rounded px-1 py-0.5 text-slate-100 outline-none  focus-visible:bg-neutral-100 hover:underline"
             >
               Sign up
             </Clerk.Link>

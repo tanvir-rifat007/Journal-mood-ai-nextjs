@@ -13,7 +13,7 @@ const JournalPage = async () => {
     <div>
       <Question />
 
-      <div className="flex gap-10 mt-10 mb-10 container mx-auto">
+      <div className="flex flex-wrap gap-10 mt-10 container mx-auto min-h-screen p-5">
         {journals.map((journal) => (
           <Link href={`journal/${journal.id}`} key={journal.id}>
             <Journal journal={journal} />

@@ -1,12 +1,17 @@
 "use client";
 
 import { queryJournals } from "@/utils/queryIngest";
+import { useUser } from "@clerk/nextjs";
 import React, { useState, useTransition } from "react";
 
 const Question = () => {
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState("");
   const [result, setResult] = useState("");
+  const { user } = useUser();
+
+  console.log(user);
+
   return (
     <div className="mt-10 mb-10 container mx-auto">
       <label className="input input-bordered flex items-center gap-2">
@@ -35,7 +40,9 @@ const Question = () => {
         className="btn mt-5"
         onClick={() => {
           startTransition(async () => {
-            const res = await queryJournals(query);
+            const res = await queryJournals(query, user.id, {
+              userId: user.id,
+            });
             console.log(res);
             setResult(res);
           });

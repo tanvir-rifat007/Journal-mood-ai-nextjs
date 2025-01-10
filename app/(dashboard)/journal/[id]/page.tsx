@@ -38,7 +38,7 @@ const page = async ({ params }: JournalEntryProps) => {
   ];
 
   return (
-    <div className="grid grid-cols-3 h-full w-full gap-4">
+    <div className="grid sm:grid-cols-3 h-full w-full gap-4 grid-cols-1">
       <div className="col-span-2 mt-10 container mx-auto">
         <Editor journal={journal} />
       </div>
@@ -52,12 +52,35 @@ const page = async ({ params }: JournalEntryProps) => {
             {analysisData.map((data) => (
               <li
                 key={data.name}
-                className="flex justify-between items-center border-b border-t border-slate-500/95"
+                className="flex justify-between items-center border-b border-t border-slate-500/95 sm:flex-row flex-col"
               >
-                <span>{data.name}</span>
-                <span>
+                <span
+                  className="
+                  sm:w-1/3
+                  w-1/2
+                  py-4
+                  px-2
+                  text-slate-50
+                  font-semibold
+                  text-xl
+
+                "
+                >
+                  {data.name}
+                </span>
+                <span
+                  className="
+                  sm:w-2/3
+                  w-1/2
+                  py-4
+                  px-2
+                  text-slate-50
+                  text-sm"
+                >
                   {data.value.includes("https") ? (
-                    <a href={data.value}>{data.value}</a>
+                    <a href={data.value} target="_blank">
+                      {data.value}
+                    </a>
                   ) : (
                     data.value
                   )}

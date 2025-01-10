@@ -24,7 +24,11 @@ const schema = z.object({
     .describe(
       "sentiment of the text and rated on a scale from -10 to 10, where -10 is extremely negative, 0 is neutral, and 10 is extremely positive.",
     ),
-  song: z.string().describe("a youtube link to a song that matches the mood."),
+  song: z
+    .string()
+    .describe(
+      "a YouTube link to a unique song that matches the mood and sentiment of the journal entry. The song should reflect the emotions or themes expressed in the journal entry and must not be a generic or repetitive choice and the YouTube song link should be of the format https://www.youtube.com/watch?v=VIDEO_ID.",
+    ),
 });
 
 // Generate the prompt
