@@ -43,9 +43,10 @@ export default function ToolQuestion() {
             const res = await queryJournals(query, user.id, {
               userId: user.id,
             });
-            console.log("Query Result:", res);
 
             const imgUrl = await createImageForReddit(res);
+
+            console.log(imgUrl);
 
             setImg(imgUrl);
           });
@@ -60,7 +61,7 @@ export default function ToolQuestion() {
           <div className="mt-5 ">
             <h3 className="text-lg font-bold">Image</h3>
             <div className="flex gap-4">
-              <Image src={img} alt="Reddit Image" width={500} height={500} />
+              <img src={img} alt="Reddit Image" width={500} height={500} />
             </div>
           </div>
         )}
