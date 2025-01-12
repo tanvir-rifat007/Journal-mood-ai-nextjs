@@ -61,8 +61,11 @@ model Analysis {
   color   String
   sentimentScore Float @default(0)
   song     String
+  image  String?
 
 
   @@unique([entryId])
   @@index([userId])
 }
+
+

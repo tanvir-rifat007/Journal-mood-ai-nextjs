@@ -44,6 +44,9 @@ const Header = () => {
                 <Link href="/history">history</Link>
               </li>
               <li>
+                <Link href="/tools">Tools</Link>
+              </li>
+              <li>
                 <UserButton />
               </li>
             </ul>
@@ -64,6 +67,9 @@ const Header = () => {
           </li>
           <li>
             <Link href="/history">History</Link>
+          </li>
+          <li>
+            <Link href="/tools">Tools</Link>
           </li>
           <li>
             <UserButton />
