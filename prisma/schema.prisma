@@ -62,7 +62,6 @@ model Analysis {
   sentimentScore Float @default(0)
   song     String
   image  String?
-  AnalysisImage AnalysisImage?
 
 
   @@unique([entryId])
