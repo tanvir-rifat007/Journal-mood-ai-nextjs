@@ -18,7 +18,7 @@ export default function ToolQuestion() {
         <input
           type="text"
           className="grow"
-          placeholder="Search"
+          placeholder="Create an image based on your journal entry..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

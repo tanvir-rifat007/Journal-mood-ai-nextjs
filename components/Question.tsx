@@ -18,7 +18,7 @@ const Question = () => {
         <input
           type="text"
           className="grow"
-          placeholder="Search"
+          placeholder="Summary of your journal entry..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
